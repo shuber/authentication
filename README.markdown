@@ -16,14 +16,14 @@ Example
 	class User < ActiveRecord::Base
 	  # Accepts an optional hash of options
 	  #   :login_field - The field to use for logins (e.g. username or email) (defaults to :email)
-	  uses_authentication
+	  uses_authentication :login_field => :username
 	end
 	
 	class ApplicationController < ActionController::Base
 	  # Set optional authentication options here
-	  #   self.authentication_message - The error flash message to set when unauthenticated (defaults to 'Login to continue')
-	  #   self.authentication_redirect_path - The path to redirect to when unauthenticated (can be a symbol of a method) (defaults to '/')
-	  #   self.authentication_model - The model that uses authentication (defaults to 'User')
+	  #   self.authentication_message = The error flash message to set when unauthenticated (defaults to 'Login to continue')
+	  #   self.authentication_redirect_path = The path to redirect to when unauthenticated (can be a symbol of a method) (defaults to '/')
+	  #   self.authentication_model = The model that uses authentication (defaults to 'User')
 	end
 	
 	class UsersController < ApplicationController
