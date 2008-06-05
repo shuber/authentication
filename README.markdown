@@ -38,7 +38,7 @@ Example
 Controller Methods
 ------------------
 	
-	# Returns the current user or false if a user is not logged in
+	# Returns the current user or nil if a user is not logged in
 	current_user
 	
 	# Checks if the current user is authenticated

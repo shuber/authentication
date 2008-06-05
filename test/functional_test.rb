@@ -59,7 +59,7 @@ class FunctionalTest < Test::Unit::TestCase
 		assert_equal @user, @controller.send(:current_user)
 		
 		@controller.send :logout
-		assert !@controller.send(:current_user)
+		assert_nil @controller.send(:current_user)
 	end
 
 	def test_should_require_login

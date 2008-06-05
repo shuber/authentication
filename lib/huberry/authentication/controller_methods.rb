@@ -18,8 +18,11 @@ module Huberry
 			module InstanceMethods
 				protected
 
-          def find_current_user
-            self.current_user = self.class.authentication_model.to_s.constantize.find(session[:user_id]) rescue false
+          def find_current_user(force_query = false)
+						if @searched_for_current_user.nil? || force_query
+							@searched_for_current_user = true
+							self.current_user = self.class.authentication_model.to_s.constantize.find(session[:user_id]) rescue nil
+						end
           end
 					
           def logged_in?
@@ -37,7 +40,7 @@ module Huberry
           end
 					
           def logout
-            self.current_user = false
+            self.current_user = nil
             session[:user_id] = nil
           end
 					
