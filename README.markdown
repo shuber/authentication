@@ -16,6 +16,9 @@ Example
 	class User < ActiveRecord::Base
 	  # Accepts an optional hash of options
 	  #   :login_field - The field to use for logins (e.g. username or email) (defaults to :email)
+	  #   :password_field - (defaults to :password)
+	  #   :hashed_password_field - (defaults to :hashed_password)
+	  #   :salt_field - (defaults to :salt)
 	  uses_authentication :login_field => :username
 	end
 	

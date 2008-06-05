@@ -1,4 +1,8 @@
 2008-06-05 - Sean Huber (shuber@huberry.com)
+	* Added extra uses_authentication field options
+	* Updated README
+
+2008-06-05 - Sean Huber (shuber@huberry.com)
 	* current_user returns nil unless logged_in?
 	* Updated README
 
