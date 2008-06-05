@@ -19,8 +19,8 @@ module Huberry
 				protected
 
           def find_current_user(force_query = false)
-						if @searched_for_current_user.nil? || force_query
-							@searched_for_current_user = true
+						if @queried_for_current_user.nil? || force_query
+							@queried_for_current_user = true
 							self.current_user = self.class.authentication_model.to_s.constantize.find(session[:user_id]) rescue nil
 						end
           end

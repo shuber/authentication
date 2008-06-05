@@ -1,3 +1,6 @@
+2008-06-05 - Sean Huber (shuber@einsteinindustries.com)
+  * Renamed @searched_for_current_user to @queried_for_current_user
+
 2008-06-05 - Sean Huber (shuber@huberry.com)
 	* Added extra uses_authentication field options
 	* Updated README
