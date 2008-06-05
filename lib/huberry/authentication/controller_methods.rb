@@ -36,7 +36,7 @@ module Huberry
 					
           def logout
             self.current_user = false
-            session.delete :user_id
+            session[:user_id] = nil
           end
 					
           def unauthenticated
