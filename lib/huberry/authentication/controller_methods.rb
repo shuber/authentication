@@ -5,8 +5,8 @@ module Huberry
 				include InstanceMethods
 				
 				cattr_accessor :unauthenticated_message, :unauthenticated_redirect_path, :user_model
-				self.unauthenticated_message = 'Login to continue'
-				self.unauthenticated_redirect_path = :new_session_path
+				self.unauthenticated_message = options[:message] || 'Login to continue'
+				self.unauthenticated_redirect_path = options[:redirect_path] || '/'
 				self.user_model = options[:user_model] || User
 
 				attr_accessor :current_user
@@ -41,7 +41,7 @@ module Huberry
 					
           def unauthenticated
             flash[:error] = self.class.unauthenticated_message.to_s
-            redirect_to respond_to?(self.class.unauthenticated_redirect_path) ? send(self.class.unauthenticated_redirect_path) : '/'
+            redirect_to respond_to?(self.class.unauthenticated_redirect_path) ? send(self.class.unauthenticated_redirect_path) : self.class.unauthenticated_redirect_path.to_s
             false
           end
 			end
