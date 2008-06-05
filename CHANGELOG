@@ -1,4 +1,7 @@
 2008-06-05 - Sean Huber (shuber@einsteinindustries.com)
+  * Added find_current_user functional tests
+
+2008-06-05 - Sean Huber (shuber@einsteinindustries.com)
   * Renamed test files
   * find_current_user always returns current_user
 

@@ -81,4 +81,26 @@ class ControllerTest < Test::Unit::TestCase
 		assert_response :success
 	end
 	
+	def test_find_current_user_with_valid_user
+		@request.session[:user_id] = @user.id
+		assert_equal @user, @controller.send(:find_current_user)
+	end
+	
+	def test_find_current_user_with_nil_user
+		assert_nil @controller.send(:find_current_user)
+	end
+	
+	def test_find_current_user_with_invalid_user
+		@request.session[:user_id] = 2
+		assert_nil @controller.send(:find_current_user)
+	end
+	
+	def test_find_current_user_force_query
+		assert_nil @controller.send(:find_current_user)
+		
+		@request.session[:user_id] = @user.id
+		assert_nil @controller.send(:find_current_user)
+		assert_equal @user, @controller.send(:find_current_user, true)
+	end
+	
 end
