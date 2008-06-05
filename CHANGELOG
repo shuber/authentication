@@ -1,14 +1,17 @@
-2008-06-05 - Sean Huber (shuber@einsteinindustries.com)
+2008-06-05 - Sean Huber (shuber@huberry.com)
+  * Changed email addresses in CHANGELOG
+
+2008-06-05 - Sean Huber (shuber@huberry.com)
   * Added find_current_user functional tests
 
-2008-06-05 - Sean Huber (shuber@einsteinindustries.com)
+2008-06-05 - Sean Huber (shuber@huberry.com)
   * Renamed test files
   * find_current_user always returns current_user
 
-2008-06-05 - Sean Huber (shuber@einsteinindustries.com)
+2008-06-05 - Sean Huber (shuber@huberry.com)
   * Renamed login_required to authentication_required
 
-2008-06-05 - Sean Huber (shuber@einsteinindustries.com)
+2008-06-05 - Sean Huber (shuber@huberry.com)
   * Renamed @searched_for_current_user to @queried_for_current_user
 
 2008-06-05 - Sean Huber (shuber@huberry.com)
