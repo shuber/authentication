@@ -1,23 +1,25 @@
 module Huberry
 	module Authentication
 		module ControllerMethods			
-			def uses_authentication(options = {})
-				include InstanceMethods
-				
-				cattr_accessor :unauthenticated_message, :unauthenticated_redirect_path, :user_model
-				self.unauthenticated_message = options[:message] || 'Login to continue'
-				self.unauthenticated_redirect_path = options[:redirect_path] || '/'
-				self.user_model = options[:user_model] || User
+			def self.extended(base)
+				base.class_eval do
+					include InstanceMethods
 
-				attr_accessor :current_user
-				helper_method :current_user, :logged_in?
+					cattr_accessor :authentication_message, :authentication_redirect_path, :authentication_model
+					self.authentication_message = 'Login to continue'
+					self.authentication_redirect_path = '/'
+					self.authentication_model = 'User'
+
+					attr_accessor :current_user
+					helper_method :current_user, :logged_in?
+				end
 			end
 			
 			module InstanceMethods
 				protected
 
           def find_current_user
-            self.current_user = self.class.user_model.find_by_id(session[:user_id]) || false
+            self.current_user = self.class.authentication_model.to_s.constantize.find(session[:user_id]) rescue false
           end
 					
           def logged_in?
@@ -40,8 +42,8 @@ module Huberry
           end
 					
           def unauthenticated
-            flash[:error] = self.class.unauthenticated_message.to_s
-            redirect_to respond_to?(self.class.unauthenticated_redirect_path) ? send(self.class.unauthenticated_redirect_path) : self.class.unauthenticated_redirect_path.to_s
+            flash[:error] = self.class.authentication_message.to_s
+            redirect_to respond_to?(self.class.authentication_redirect_path) ? send(self.class.authentication_redirect_path) : self.class.authentication_redirect_path.to_s
             false
           end
 			end

@@ -20,11 +20,10 @@ Example
 	end
 	
 	class ApplicationController < ActionController::Base
-	  # Accepts an optional hash of options
-	  #   :message - The error flash message to set when unauthenticated (defaults to 'Login to continue')
-	  #   :redirect_path - The path to redirect to when unauthenticated (can be a symbol of a method) (defaults to '/')
-	  #   :user_model - The model that uses authentication (defaults to User)
-	  uses_authentication
+	  # Set optional authentication options here
+	  #   self.authentication_message - The error flash message to set when unauthenticated (defaults to 'Login to continue')
+	  #   self.authentication_redirect_path - The path to redirect to when unauthenticated (can be a symbol of a method) (defaults to '/')
+	  #   self.authentication_model - The model that uses authentication (defaults to 'User')
 	end
 	
 	class UsersController < ApplicationController

@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
 end
 
 class TestController < ActionController::Base
-	uses_authentication
-	
 	before_filter :login_required, :only => :authentication_required
 	
 	def authentication_required
@@ -68,7 +66,7 @@ class FunctionalTest < Test::Unit::TestCase
 		get :authentication_required
 		assert_response :redirect
 		assert flash.has_key?(:error)
-		assert_equal @controller.unauthenticated_message, flash[:error]
+		assert_equal @controller.authentication_message, flash[:error]
 		assert_redirected_to '/'
 	end
 	
