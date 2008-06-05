@@ -27,6 +27,7 @@ module Huberry
 							@queried_for_current_user = true
 							self.current_user = self.class.authentication_model.to_s.constantize.find(session[:user_id]) rescue nil
 						end
+						self.current_user
           end
 					
           def logged_in?

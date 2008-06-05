@@ -25,7 +25,7 @@ ActionController::Routing::Routes.append do |map|
 	map.connect 'login_not_required', :controller => 'test', :action => 'login_not_required'
 end
 
-class FunctionalTest < Test::Unit::TestCase
+class ControllerTest < Test::Unit::TestCase
 	
 	def setup
     create_users_table

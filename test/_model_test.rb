@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	uses_authentication
 end
 
-class UnitTest < Test::Unit::TestCase
+class ModelTest < Test::Unit::TestCase
   
   def setup
     create_users_table
