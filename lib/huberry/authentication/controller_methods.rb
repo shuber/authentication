@@ -17,6 +17,10 @@ module Huberry
 			
 			module InstanceMethods
 				protected
+				
+					def authentication_required
+            unauthenticated unless logged_in?
+          end
 
           def find_current_user(force_query = false)
 						if @queried_for_current_user.nil? || force_query
@@ -33,10 +37,6 @@ module Huberry
           def login(user)
             self.current_user = user
             session[:user_id] = user.id
-          end
-					
-          def login_required
-            unauthenticated unless logged_in?
           end
 					
           def logout

@@ -5,13 +5,13 @@ class User < ActiveRecord::Base
 end
 
 class TestController < ActionController::Base
-	before_filter :login_required, :only => :authentication_required
+	before_filter :authentication_required, :only => :login_required
 	
-	def authentication_required
+	def login_required
 		render :text => 'test'
 	end
 	
-	def authentication_not_required
+	def login_not_required
 		render :text => 'test'
 	end
 	
@@ -21,8 +21,8 @@ class TestController < ActionController::Base
 end
 
 ActionController::Routing::Routes.append do |map|
-	map.connect 'authentication_required', :controller => 'test', :action => 'authentication_required'
-	map.connect 'authentication_not_required', :controller => 'test', :action => 'authentication_not_required'
+	map.connect 'login_required', :controller => 'test', :action => 'login_required'
+	map.connect 'login_not_required', :controller => 'test', :action => 'login_not_required'
 end
 
 class FunctionalTest < Test::Unit::TestCase
@@ -63,7 +63,7 @@ class FunctionalTest < Test::Unit::TestCase
 	end
 
 	def test_should_require_login
-		get :authentication_required
+		get :login_required
 		assert_response :redirect
 		assert flash.has_key?(:error)
 		assert_equal @controller.authentication_message, flash[:error]
@@ -71,13 +71,13 @@ class FunctionalTest < Test::Unit::TestCase
 	end
 	
 	def test_should_not_require_login
-		get :authentication_not_required
+		get :login_not_required
 		assert_response :success
 	end
 	
 	def test_should_login_and_get_authentication_required
 		@controller.send :login, @user
-		get :authentication_required
+		get :login_required
 		assert_response :success
 	end
 	
