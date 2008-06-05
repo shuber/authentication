@@ -3,7 +3,7 @@ require 'digest/sha2'
 module Huberry
 	module Authentication
 		module ModelMethods
-			def acts_as_authenticated(options = {})
+			def uses_authentication(options = {})
 				extend ClassMethods
 				include InstanceMethods
 				

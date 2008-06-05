@@ -35,11 +35,6 @@ class ActionController::Routing::RouteSet
 	end
 end
 
-# ApplicationController
-#
-class ApplicationController < ActionController::Base
-end
-
 # Require the main init.rb for the plugin
 #
 require File.join(File.dirname(File.dirname(__FILE__)), 'init')
