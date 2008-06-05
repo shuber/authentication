@@ -57,7 +57,7 @@ Controller Methods
 Model Methods
 -------------
 
-	# Class method that authenticates a user based on a login and password passed to it - returns a user instance if authenticated, otherwise false
+	# Class method that authenticates a user based on a login and password - returns a user instance or false
 	User.authenticate(login, password)
 	
 	# Checks if the password passed to it matches the current user instance's password
