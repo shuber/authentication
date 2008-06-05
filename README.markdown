@@ -7,7 +7,7 @@ A rails plugin that handles authentication
 Installation
 ------------
 
-script/plugin install git://github.com/shuber/authentication.git
+	script/plugin install git://github.com/shuber/authentication.git
 
 
 Example
