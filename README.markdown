@@ -32,7 +32,45 @@ Example
 	  def index
 	    render :text => 'test'
 	  end
-	end
+	end	
+
+
+Controller Methods
+------------------
+	
+	# Returns the current user or false if a user is not logged in
+	current_user
+	
+	# Checks if the current user is authenticated
+	logged_in?
+	
+	# Login a user
+	login(user)
+	
+	# A before filter to require authentication - redirects to the controller class's authentication_redirect_path if unauthenticated
+	login_required
+	
+	# Logout the current user
+	logout
+
+
+Model Methods
+-------------
+
+	# Class method that authenticates a user based on a login and password passed to it - returns a user instance if authenticated, otherwise false
+	User.authenticate(login, password)
+	
+	# Checks if the password passed to it matches the current user instance's password
+	authenticated?(password)
+	
+	# Checks if the current user instance's password has just been changed
+	password_changed?
+	
+	# Resets the password - will generate a new random password if one is not specified
+	reset_password(new_password = nil)
+	
+	# Resets the password and saves - will generate a new random password if one is not specified
+	reset_password!(new_password = nil)
 
 
 Contact

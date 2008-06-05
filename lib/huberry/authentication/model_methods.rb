@@ -53,7 +53,7 @@ module Huberry
 				save
 			end
 
-      private
+      protected
 
         def generate_salt
           self.class.digest("--#{Time.now}--#{rand}--")
