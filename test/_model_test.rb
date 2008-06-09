@@ -88,5 +88,16 @@ class ModelTest < Test::Unit::TestCase
 		@user = create_user
 		assert @user.reset_password!('new_password')
 	end
+	
+	def test_reload_should_set_password_changed_to_false
+		@user = create_user
+		assert !@user.password_changed?
+		
+		@user.reset_password!('new_password')
+		assert @user.password_changed?
+		
+		@user.reload
+		assert !@user.password_changed?
+	end
 
 end

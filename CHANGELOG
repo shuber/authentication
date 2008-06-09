@@ -1,3 +1,6 @@
+2008-06-09 - Sean Huber (shuber@einsteinindustries.com)
+  * Reloading a model sets password_changed? to false
+
 2008-06-05 - Sean Huber (shuber@huberry.com)
   * Changed email addresses in CHANGELOG
 

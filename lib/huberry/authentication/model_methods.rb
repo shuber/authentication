@@ -20,6 +20,8 @@ module Huberry
   			validates_confirmation_of self.password_field, :if => :password_required?
 	
   			before_save :hash_password
+
+				alias_method_chain :reload, :authentication
 			end
 		end
 		
@@ -41,6 +43,11 @@ module Huberry
 
 			def password_changed?
 				!!@password_changed
+			end
+			
+			def reload_with_authentication(*args)
+				reload_without_authentication(*args)
+				@password_changed = false
 			end
 
       def reset_password(new_password = nil)
