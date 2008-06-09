@@ -76,7 +76,6 @@ module Huberry
   
         def password_required?
 					send(self.class.hashed_password_field).blank? || !send(self.class.password_field).blank?
-					self.hashed_password.blank? || !self.password.blank?
         end
 		end
 	end

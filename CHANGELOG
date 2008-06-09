@@ -1,4 +1,7 @@
 2008-06-09 - Sean Huber (shuber@einsteinindustries.com)
+  * Removed accidently left over hard coded logic from password_required?
+
+2008-06-09 - Sean Huber (shuber@einsteinindustries.com)
   * Reloading a model sets password_changed? to false
 
 2008-06-05 - Sean Huber (shuber@huberry.com)
