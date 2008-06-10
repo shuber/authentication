@@ -46,6 +46,7 @@ module Huberry
           end
 					
           def unauthenticated
+						session[:return_to] = request.request_uri
             flash[:error] = self.class.authentication_message.to_s
             redirect_to respond_to?(self.class.authentication_redirect_path) ? send(self.class.authentication_redirect_path) : self.class.authentication_redirect_path.to_s
             false

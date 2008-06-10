@@ -103,4 +103,9 @@ class ControllerTest < Test::Unit::TestCase
 		assert_equal @user, @controller.send(:find_current_user, true)
 	end
 	
+	def test_unauthenticated_sets_return_to_session_variable
+		get :login_required
+		assert_equal @controller.session[:return_to], '/login_required'
+	end
+	
 end

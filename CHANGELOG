@@ -1,24 +1,27 @@
-2008-06-09 - Sean Huber (shuber@einsteinindustries.com)
-  * Removed accidently left over hard coded logic from password_required?
+2008-06-09 - Sean Huber (shuber@huberry.com)
+	* unauthenticated method stores request_uri in session[:return_to]
 
-2008-06-09 - Sean Huber (shuber@einsteinindustries.com)
-  * Reloading a model sets password_changed? to false
+2008-06-09 - Sean Huber (shuber@huberry.com)
+	* Removed accidently left over hard coded logic from password_required?
 
-2008-06-05 - Sean Huber (shuber@huberry.com)
-  * Changed email addresses in CHANGELOG
-
-2008-06-05 - Sean Huber (shuber@huberry.com)
-  * Added find_current_user functional tests
+2008-06-09 - Sean Huber (shuber@huberry.com)
+	* Reloading a model sets password_changed? to false
 
 2008-06-05 - Sean Huber (shuber@huberry.com)
-  * Renamed test files
-  * find_current_user always returns current_user
+	* Changed email addresses in CHANGELOG
 
 2008-06-05 - Sean Huber (shuber@huberry.com)
-  * Renamed login_required to authentication_required
+	* Added find_current_user functional tests
 
 2008-06-05 - Sean Huber (shuber@huberry.com)
-  * Renamed @searched_for_current_user to @queried_for_current_user
+	* Renamed test files
+	* find_current_user always returns current_user
+
+2008-06-05 - Sean Huber (shuber@huberry.com)
+	* Renamed login_required to authentication_required
+
+2008-06-05 - Sean Huber (shuber@huberry.com)
+	* Renamed @searched_for_current_user to @queried_for_current_user
 
 2008-06-05 - Sean Huber (shuber@huberry.com)
 	* Added extra uses_authentication field options
