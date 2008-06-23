@@ -1,9 +1,5 @@
 require File.dirname(__FILE__) + '/init'
 
-class User < ActiveRecord::Base
-	uses_authentication
-end
-
 class ModelTest < Test::Unit::TestCase
   
   def setup

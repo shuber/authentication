@@ -38,3 +38,8 @@ end
 # Require the main init.rb for the plugin
 #
 require File.join(File.dirname(File.dirname(__FILE__)), 'init')
+
+# Basic user class
+class User < ActiveRecord::Base
+	uses_authentication
+end

@@ -5,10 +5,10 @@ module Huberry
 				base.class_eval do
 					include InstanceMethods
 
-					cattr_accessor :authentication_message, :authentication_redirect_path, :authentication_model
-					self.authentication_message = 'Login to continue'
-					self.authentication_redirect_path = '/'
+					cattr_accessor :authentication_model, :unauthenticated_message, :unauthenticated_redirect_path
 					self.authentication_model = 'User'
+					self.unauthenticated_message = 'Login to continue'
+					self.unauthenticated_redirect_path = '/'
 
 					attr_accessor :current_user
 					helper_method :current_user, :logged_in?
@@ -32,7 +32,11 @@ module Huberry
 					
           def logged_in?
             find_current_user if self.current_user.nil?
-            !!self.current_user
+						if self.current_user.nil?
+							block_given? ? nil : false
+						else
+							block_given? ? yield : true
+						end
           end
 					
           def login(user)
@@ -47,8 +51,8 @@ module Huberry
 					
           def unauthenticated
 						session[:return_to] = request.request_uri
-            flash[:error] = self.class.authentication_message.to_s
-            redirect_to respond_to?(self.class.authentication_redirect_path) ? send(self.class.authentication_redirect_path) : self.class.authentication_redirect_path.to_s
+            flash[:error] = self.class.unauthenticated_message.to_s
+            redirect_to respond_to?(self.class.unauthenticated_redirect_path) ? send(self.class.unauthenticated_redirect_path) : self.class.unauthenticated_redirect_path.to_s
             false
           end
 			end

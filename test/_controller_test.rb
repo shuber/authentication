@@ -1,9 +1,5 @@
 require File.dirname(__FILE__) + '/init'
 
-class User < ActiveRecord::Base
-	uses_authentication
-end
-
 class TestController < ActionController::Base
 	before_filter :authentication_required, :only => :login_required
 	
@@ -52,6 +48,13 @@ class ControllerTest < Test::Unit::TestCase
 		assert !@controller.send(:logged_in?)
 	end
 	
+	def test_logged_in_yields_block_on_true
+		assert_equal nil, @controller.send(:logged_in?) { 'some_value' }
+		
+		@controller.send :login, @user
+		assert_equal 'some_value', @controller.send(:logged_in?) { 'some_value' }
+	end
+	
 	def test_current_user
 		assert_nil @controller.send(:current_user)
 		
@@ -66,7 +69,7 @@ class ControllerTest < Test::Unit::TestCase
 		get :login_required
 		assert_response :redirect
 		assert flash.has_key?(:error)
-		assert_equal @controller.authentication_message, flash[:error]
+		assert_equal @controller.unauthenticated_message, flash[:error]
 		assert_redirected_to '/'
 	end
 	

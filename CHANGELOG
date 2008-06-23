@@ -1,3 +1,7 @@
+2008-06-23 - Sean Huber (shuber@huberry.com)
+	* Renamed authentication_message/redirect_path to unauthenticated_message/redirect_path
+	* logged_in? now accepts a block that will yield when true
+
 2008-06-09 - Sean Huber (shuber@huberry.com)
 	* unauthenticated method stores request_uri in session[:return_to]
 

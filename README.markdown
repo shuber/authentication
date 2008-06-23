@@ -24,9 +24,9 @@ Example
 	
 	class ApplicationController < ActionController::Base
 	  # Set optional authentication options here
-	  #   self.authentication_message = The error flash message to set when unauthenticated (defaults to 'Login to continue')
-	  #   self.authentication_redirect_path = The path to redirect to when unauthenticated (can be a symbol of a method) (defaults to '/')
 	  #   self.authentication_model = The model that uses authentication (defaults to 'User')
+	  #   self.unauthenticated_message = The error flash message to set when unauthenticated (defaults to 'Login to continue')
+	  #   self.unauthenticated_redirect_path = The path to redirect to when unauthenticated (can be a symbol of a method) (defaults to '/')
 	end
 	
 	class UsersController < ApplicationController
@@ -44,7 +44,7 @@ Controller Methods
 	# Returns the current user or nil if a user is not logged in
 	current_user
 	
-	# Checks if the current user is authenticated
+	# Checks if the current user is authenticated (optionaly accepts a block that is yielded when true)
 	logged_in?
 	
 	# Login a user
