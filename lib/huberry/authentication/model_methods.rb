@@ -70,8 +70,10 @@ module Huberry
         end
 
         def hash_password
-					send("#{self.class.salt_field}=", generate_salt) if send("#{self.class.salt_field}").blank?
-					send("#{self.class.hashed_password_field}=", self.class.digest(send(self.class.password_field).to_s + send(self.class.salt_field).to_s))
+          if password_changed? || password_required?
+  					send("#{self.class.salt_field}=", generate_salt) if send("#{self.class.salt_field}").blank?
+  					send("#{self.class.hashed_password_field}=", self.class.digest(send(self.class.password_field).to_s + send(self.class.salt_field).to_s))
+  				end
         end
   
         def password_required?
