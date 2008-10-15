@@ -30,7 +30,7 @@ Example
 	end
 	
 	class UsersController < ApplicationController
-	  before_filter :login_required, :only => [:index]
+	  before_filter :authentication_required, :only => [:index]
 	
 	  def index
 	    render :text => 'test'
@@ -51,7 +51,7 @@ Controller Methods
 	login(user)
 	
 	# A before filter to require authentication - redirects to the controller class's authentication_redirect_path if unauthenticated
-	login_required
+	authentication_required
 	
 	# Logout the current user
 	logout
