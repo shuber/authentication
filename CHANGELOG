@@ -3,6 +3,7 @@
   * Convert to soft tabs
   * Remove .gitignore
   * Gemify
+  * Remove logic that rejected TextMate paths to fix the old builder.rb conflict
 
 2008-06-23 - Sean Huber (shuber@huberry.com)
   * Renamed authentication_message/redirect_path to unauthenticated_message/redirect_path
