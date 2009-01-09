@@ -1,6 +1,7 @@
 2009-01-08 - Sean Huber (shuber@huberry.com)
   * Clean up CHANGELOG
   * Convert to soft tabs
+  * Remove .gitignore
 
 2008-06-23 - Sean Huber (shuber@huberry.com)
   * Renamed authentication_message/redirect_path to unauthenticated_message/redirect_path
