@@ -1,74 +1,31 @@
+2009-01-08 - Sean Huber (shuber@huberry.com)
+  * Clean up CHANGELOG
+
 2008-06-23 - Sean Huber (shuber@huberry.com)
-	* Renamed authentication_message/redirect_path to unauthenticated_message/redirect_path
-	* logged_in? now accepts a block that will yield when true
+  * Renamed authentication_message/redirect_path to unauthenticated_message/redirect_path
+  * logged_in? now accepts a block that will yield when true
 
 2008-06-09 - Sean Huber (shuber@huberry.com)
-	* unauthenticated method stores request_uri in session[:return_to]
-
-2008-06-09 - Sean Huber (shuber@huberry.com)
-	* Removed accidently left over hard coded logic from password_required?
-
-2008-06-09 - Sean Huber (shuber@huberry.com)
-	* Reloading a model sets password_changed? to false
+  * Reloading a model sets password_changed? to false
+  * Removed accidently left over hard coded logic from password_required?
+  * unauthenticated method stores request_uri in session[:return_to]
 
 2008-06-05 - Sean Huber (shuber@huberry.com)
-	* Changed email addresses in CHANGELOG
-
-2008-06-05 - Sean Huber (shuber@huberry.com)
-	* Added find_current_user functional tests
-
-2008-06-05 - Sean Huber (shuber@huberry.com)
-	* Renamed test files
-	* find_current_user always returns current_user
-
-2008-06-05 - Sean Huber (shuber@huberry.com)
-	* Renamed login_required to authentication_required
-
-2008-06-05 - Sean Huber (shuber@huberry.com)
-	* Renamed @searched_for_current_user to @queried_for_current_user
-
-2008-06-05 - Sean Huber (shuber@huberry.com)
-	* Added extra uses_authentication field options
-	* Updated README
-
-2008-06-05 - Sean Huber (shuber@huberry.com)
-	* current_user returns nil unless logged_in?
-	* Updated README
-
-2008-06-05 - Sean Huber (shuber@huberry.com)
-	* Updated README
-
-2008-06-05 - Sean Huber (shuber@huberry.com)
-	* Updated README
+  * Updated README
+  * current_user returns nil unless logged_in?
+  * Added extra uses_authentication field options
+  * Renamed @searched_for_current_user to @queried_for_current_user
+  * Renamed login_required to authentication_required
+  * find_current_user always returns current_user
+  * Renamed test files
+  * Added find_current_user functional tests
+  * Changed email addresses in CHANGELOG
 
 2008-06-04 - Sean Huber (shuber@huberry.com)
-	* Updated README
-
-2008-06-04 - Sean Huber (shuber@huberry.com)
-	* Updated README
-
-2008-06-04 - Sean Huber (shuber@huberry.com)
-	* Controller no longer has to call uses_authentication - logic included automatically
-	* Updated README
-
-2008-06-04 - Sean Huber (shuber@huberry.com)
-	* Updated README
-
-2008-06-04 - Sean Huber (shuber@huberry.com)
-	* Updated README
-
-2008-06-04 - Sean Huber (shuber@huberry.com)
-	* Updated README
-
-2008-06-04 - Sean Huber (shuber@huberry.com)
-	* Added functional tests
-
-2008-06-04 - Sean Huber (shuber@huberry.com)
-	* Fixed functional test exception
-
-2008-06-04 - Sean Huber (shuber@huberry.com)
-	* Controller and model must call uses_authentication
-
-2008-06-04 - Sean Huber (shuber@huberry.com)
-	* Initial import from access_control_list repository
-	* Login field is configurable
+  * Initial import from access_control_list repository
+  * Login field is configurable
+  * Controller and model must call uses_authentication
+  * Fixed functional test exception
+  * Added functional tests
+  * Updated README
+  * Controller no longer has to call uses_authentication - logic included automatically
