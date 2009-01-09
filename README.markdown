@@ -17,6 +17,8 @@ Usage
 
 ### Model ###
 
+Simply call `uses_authentication` in your model like so:
+
 	class User < ActiveRecord::Base
 	  # Accepts an optional hash of options
 	  #   :login_field - The field to use for logins (e.g. username or email) (defaults to :email)
@@ -25,6 +27,8 @@ Usage
 	  #   :salt_field - (defaults to :salt)
 	  uses_authentication :login_field => :username
 	end
+
+A few helpful methods will now be available for your model:
 
 	# Class method that authenticates a user based on a login and password - returns a user instance or false
 	User.authenticate(login, password)
