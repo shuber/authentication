@@ -1,12 +1,14 @@
-Huberry::Authentication
-=======================
+authentication
+==============
 
-A rails plugin that handles authentication
+A rails gem/plugin that handles authentication
 
 
 Installation
 ------------
 
+	gem install shuber-authentication --source http://gems.github.com
+	OR
 	script/plugin install git://github.com/shuber/authentication.git
 
 
@@ -40,7 +42,7 @@ Example
 
 Controller Methods
 ------------------
-	
+
 	# Returns the current user or nil if a user is not logged in
 	current_user
 	
