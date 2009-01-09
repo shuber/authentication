@@ -1,3 +1,6 @@
+2009-01-09 - Sean Huber (shuber@huberry.com)
+  * Add authentication_options cattr_accessor
+
 2009-01-08 - Sean Huber (shuber@huberry.com)
   * Clean up CHANGELOG
   * Convert to soft tabs

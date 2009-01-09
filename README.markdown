@@ -46,7 +46,7 @@ Controller Methods
 	# Returns the current user or nil if a user is not logged in
 	current_user
 	
-	# Checks if the current user is authenticated (optionaly accepts a block that is yielded when true)
+	# Checks if the current user is authenticated
 	logged_in?
 	
 	# Login a user
