@@ -29,10 +29,10 @@ require 'action_controller/test_process'
 # Routing
 #
 class ActionController::Routing::RouteSet
-	def append
+  def append
     yield Mapper.new(self)
     install_helpers
-	end
+  end
 end
 
 # Require the main init.rb for the plugin
@@ -41,5 +41,5 @@ require File.join(File.dirname(File.dirname(__FILE__)), 'init')
 
 # Basic user class
 class User < ActiveRecord::Base
-	uses_authentication
+  uses_authentication
 end

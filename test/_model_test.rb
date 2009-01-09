@@ -16,12 +16,12 @@ class ModelTest < Test::Unit::TestCase
     end
   end
 
-	def test_should_not_create_without_email
-		assert_no_difference 'User.count' do
-			@user = create_user :email => ''
-		end
-		assert @user.errors.on(:email)
-	end
+  def test_should_not_create_without_email
+    assert_no_difference 'User.count' do
+      @user = create_user :email => ''
+    end
+    assert @user.errors.on(:email)
+  end
   
   def test_should_not_create_without_password
     assert_no_difference 'User.count' do
@@ -69,31 +69,31 @@ class ModelTest < Test::Unit::TestCase
     assert !User.authenticate(@user.email, 'invalid')
   end
 
-	def test_should_reset_password
-		@user = create_user
-		assert !@user.password_changed?
-		old_password = @user.password
-		
-		@user.reset_password('new_password')
-		assert_not_equal 'new_password', old_password
-		assert_equal 'new_password', @user.password
-		assert @user.password_changed?
-	end
-	
-	def test_should_reset_password!
-		@user = create_user
-		assert @user.reset_password!('new_password')
-	end
-	
-	def test_reload_should_set_password_changed_to_false
-		@user = create_user
-		assert !@user.password_changed?
-		
-		@user.reset_password!('new_password')
-		assert @user.password_changed?
-		
-		@user.reload
-		assert !@user.password_changed?
-	end
+  def test_should_reset_password
+    @user = create_user
+    assert !@user.password_changed?
+    old_password = @user.password
+    
+    @user.reset_password('new_password')
+    assert_not_equal 'new_password', old_password
+    assert_equal 'new_password', @user.password
+    assert @user.password_changed?
+  end
+  
+  def test_should_reset_password!
+    @user = create_user
+    assert @user.reset_password!('new_password')
+  end
+  
+  def test_reload_should_set_password_changed_to_false
+    @user = create_user
+    assert !@user.password_changed?
+    
+    @user.reset_password!('new_password')
+    assert @user.password_changed?
+    
+    @user.reload
+    assert !@user.password_changed?
+  end
 
 end
