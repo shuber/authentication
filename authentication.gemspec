@@ -1,7 +1,7 @@
 Gem::Specification.new do |s| 
   s.name    = 'authentication'
-  s.version = '1.0.1'
-  s.date    = '2009-01-09'
+  s.version = '1.0.2'
+  s.date    = '2009-01-24'
   
   s.summary     = 'A rails gem/plugin that handles authentication'
   s.description = 'A rails gem/plugin that handles authentication'
